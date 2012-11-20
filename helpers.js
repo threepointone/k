@@ -3,17 +3,17 @@
 var path = require('path');
 
 module.exports = {
-	hashify: function(str) {
-		return require('crypto').createHash('sha1').update(str).digest('hex');
-	},
-	dest: function(base, relative, file) {
+    hashify: function(str) {
+        return require('crypto').createHash('sha1').update(str).digest('hex');
+    },
+    dest: function(base, relative, file) {
 
-	},
-	compressjs: function(script) {
-		var uglify = require('uglify-js');
-		var jsp = uglify.parser,
-			pro = uglify.uglify;
+    },
+    compressjs: function(script) {
+        var uglify = require('uglify-js');
+        var jsp = uglify.parser,
+            pro = uglify.uglify;
 
-		return pro.gen_code(pro.ast_mangle(pro.ast_squeeze(jsp.parse(script || ''))));
-	}
+        return pro.gen_code(pro.ast_mangle(pro.ast_squeeze(jsp.parse(script || ''))));
+    }
 };
