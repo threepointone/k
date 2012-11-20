@@ -8,7 +8,6 @@ var _ = require('underscore'),
 
     var tasks = {};
 
-
     function k(config) {
 
         function init(callback) {
@@ -57,7 +56,6 @@ var _ = require('underscore'),
 
             };
             return this;
-
         }
 
         return {
@@ -65,8 +63,6 @@ var _ = require('underscore'),
             task: task
         };
     }
-
-
 
     if(typeof exports !== 'undefined') {
         if(typeof module !== 'undefined' && module.exports) {
@@ -78,6 +74,5 @@ var _ = require('underscore'),
     }
 
     k.VERSION = '0.1';
-
 
 }).call(this);
