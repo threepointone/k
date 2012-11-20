@@ -12,8 +12,14 @@ var o = k({
 	// send whatever you'd like, they'll be available on this.config
 });
 
-o.files(cb)			// resolves filenames
+o.init(cb)			// resolves filenames
 
-o.task(name, fn)	// define a new task. will be available on o. see tasks.js for available tasks.
-
+o.task(name, fn)	// define a new task. the task will be available on o. 
 ```
+see tasks.js for available tasks.
+
+coming up
+---------
+- an api based on deferreds
+- analysis tasks
+- full fledged examples
