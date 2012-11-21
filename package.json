@@ -1,0 +1,21 @@
+{
+  "name": "k",
+  "version": "0.0.1",
+  "description": "build systems, revisited",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/test.js --reporter list",
+    "coverage": "rm -rf lib-cov/ && jscoverage lib lib-cov && mocha tests/test.js --reporter html-cov > coverage.html && open coverage.html" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/threepointone/k.git"
+  },
+  "keywords": [
+    "build",
+    "systems",
+    "deferreds"
+  ],
+  "author": "Sunil Pai",
+  "license": "BSD"
+}

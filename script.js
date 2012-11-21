@@ -1,12 +1,10 @@
 "use strict";
 
-var k = require('./k'),
-    tasks = require('./tasks'),
+var k = require('./index'),
+
     async = require('async'),
     _ = require('underscore'),
     fs = require('fs');
-
-k.task(tasks);
 
 var x = k({
     base: './',
@@ -16,12 +14,13 @@ var x = k({
 x.read(function() {
     var y = this.clone();
 
-    this.filter(/t/, function() {
+    this.filter(/.js$/, function() {
         this.compress({}, function() {
             this.hashify(function() {
                 this.write(function() {
                     console.log('x', _.pluck(x.files, 'src'));
-                    console.log('y', _.pluck(y.files, 'src'));                    
+                    console.log('y', _.pluck(y.files, 'src')); 
+                    console.log(x===y);
                 });
             });
         });
