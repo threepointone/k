@@ -5,19 +5,22 @@ var _ = require('underscore'),
 
 (function(ctx) {
     var root = this;
+    var instances = [];
 
     var tasks = {};
 
     function k(config) {
 
         function init(callback) {
+            var t = this;
+            instances.push(t);
             this.config = config = _.extend({}, {
                 base: './',
                 dest: './'
             }, config);
 
             _.each(tasks, function(fn, name) {
-                task(name, fn);
+                task.apply(t, [name, fn])
             });
 
             var files = [];
@@ -30,7 +33,9 @@ var _ = require('underscore'),
                 });
             });
             this.files = files; // todo - are we sure?
-            callback && _.bind(callback, this)(null, files);
+            // callback && _.bind(callback, this)(null, files);
+            return this;
+
         }
 
         function task(name, fn) {
@@ -44,8 +49,7 @@ var _ = require('underscore'),
                 return this;
             }
 
-            tasks[name] = fn;
-
+            // tasks[name] = fn;
             t[name] = function() {
                 var args = _.toArray(arguments);
                 if(_.isFunction(_.last(args))) {
@@ -60,14 +64,32 @@ var _ = require('underscore'),
             return this;
         }
 
-        return {
+
+        var o = {
             init: init,
             task: task
         };
+
+        o.init.apply(o);
+        return o;
     }
 
-    k.task = function(name, fn){
-        tasks [name] = fn;
+    k.task = function(name, fn) {
+        var t = this;
+        if(typeof name !== 'string') {
+
+            //sending in a hash
+            _.each(name, function(f, n) {
+                k.task(n, f);
+            });
+            return this;
+        }
+        tasks[name] = fn;
+
+        // give all instances the new tasks as well
+        _.each(instances, function(inst){
+            t.task(name, fn);
+        });
     };
 
     if(typeof exports !== 'undefined') {

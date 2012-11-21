@@ -6,11 +6,12 @@ var k = require('./k'),
     _ = require('underscore'),
     fs = require('fs');
 
+    k.task(tasks);
+
 var x = k({
     base: './',
     dest: 'build'
-}).task(tasks).init(function() {
-    this.read(function() {
+}).read(function() {
         this.filter(/.js/, function() {
             this.compress({}, function() {
                 this.hashify(function() {
@@ -22,7 +23,7 @@ var x = k({
             });
         });
     });
-});
+
 
 // then, you can use deferreds and do this - 
 // x().read().filter(/.js/).compress({}).write();
