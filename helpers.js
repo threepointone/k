@@ -3,6 +3,9 @@
 var path = require('path');
 
 module.exports = {
+    jsonclone: function(o){
+        return JSON.parse(JSON.stringify(o));
+    },
     hashify: function(str) {
         return require('crypto').createHash('sha1').update(str).digest('hex');
     },

@@ -6,23 +6,27 @@ var k = require('./k'),
     _ = require('underscore'),
     fs = require('fs');
 
-    k.task(tasks);
+k.task(tasks);
 
 var x = k({
     base: './',
     dest: 'build'
-}).read(function() {
-        this.filter(/.js/, function() {
-            this.compress({}, function() {
-                this.hashify(function() {
-                    this.write(function() {
-                        console.log(this);
-                    });
-                });
+});
 
+x.read(function() {
+    var y = this.clone();
+
+    this.filter(/t/, function() {
+        this.compress({}, function() {
+            this.hashify(function() {
+                this.write(function() {
+                    console.log('x', _.pluck(x.files, 'src'));
+                    console.log('y', _.pluck(y.files, 'src'));                    
+                });
             });
         });
     });
+});
 
 
 // then, you can use deferreds and do this - 

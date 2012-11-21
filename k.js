@@ -3,6 +3,7 @@ var _ = require('underscore'),
     glob = require('glob-whatev'),
     path = require('path');
 
+
 (function(ctx) {
     var root = this;
     var instances = [];
@@ -17,22 +18,28 @@ var _ = require('underscore'),
             this.config = config = _.extend({}, {
                 base: './',
                 dest: './'
-            }, config);
+            }, config || {});
 
             _.each(tasks, function(fn, name) {
                 task.apply(t, [name, fn])
             });
 
-            var files = [];
-            var src = [path.join(config.base, '*')]; // todo - nested dirs
-            _.each(src, function(pattern) {
-                glob.glob(pattern).forEach(function(path) {
+
+
+            var files = this.config.files || [];
+            if(!this.config.files) {
+                glob.glob(path.join(config.base, '**')).forEach(function(path) {
                     files.push({
                         src: path
                     });
                 });
-            });
-            this.files = files; // todo - are we sure?
+
+                this.files = files; // todo - are we sure?
+            }
+            else{
+                this.files = this.config.files;
+            }
+
             // callback && _.bind(callback, this)(null, files);
             return this;
 
@@ -52,6 +59,9 @@ var _ = require('underscore'),
             // tasks[name] = fn;
             t[name] = function() {
                 var args = _.toArray(arguments);
+                // todo - now naively making sure the last param passed is a function. 
+                // must rewrite. not sure how. we'll see. bababooey. 
+
                 if(_.isFunction(_.last(args))) {
                     args[args.length - 1] = _.bind(args[args.length - 1], t);
                 } else {
@@ -61,13 +71,19 @@ var _ = require('underscore'),
                 return t;
 
             };
-            return this;
+            return t;
         }
 
+        function clone(){
+            var conf = _.jsonclone(this.config);
+            conf.files = _.jsonclone(this.files);
+            return k(conf);
+        }
 
         var o = {
             init: init,
-            task: task
+            task: task,
+            clone: clone
         };
 
         o.init.apply(o);
@@ -75,6 +91,7 @@ var _ = require('underscore'),
     }
 
     k.task = function(name, fn) {
+        // todo - handle collisions?
         var t = this;
         if(typeof name !== 'string') {
 
@@ -87,7 +104,7 @@ var _ = require('underscore'),
         tasks[name] = fn;
 
         // give all instances the new tasks as well
-        _.each(instances, function(inst){
+        _.each(instances, function(inst) {
             t.task(name, fn);
         });
     };
