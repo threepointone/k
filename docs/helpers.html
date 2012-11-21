@@ -1,0 +1,24 @@
+<!DOCTYPE html>  <html> <head>   <title>helpers.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="helpers.html">                 helpers.js               </a>                                           <a class="source" href="k.html">                 k.js               </a>                                           <a class="source" href="tasks.html">                 tasks.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               helpers.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">jsonclone</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">o</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="nx">hashify</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">).</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;sha1&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">str</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">dest</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">relative</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="nx">compressjs</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">script</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">uglify</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;uglify-js&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">jsp</span> <span class="o">=</span> <span class="nx">uglify</span><span class="p">.</span><span class="nx">parser</span><span class="p">,</span>
+            <span class="nx">pro</span> <span class="o">=</span> <span class="nx">uglify</span><span class="p">.</span><span class="nx">uglify</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">pro</span><span class="p">.</span><span class="nx">gen_code</span><span class="p">(</span><span class="nx">pro</span><span class="p">.</span><span class="nx">ast_mangle</span><span class="p">(</span><span class="nx">pro</span><span class="p">.</span><span class="nx">ast_squeeze</span><span class="p">(</span><span class="nx">jsp</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">script</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">))));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
