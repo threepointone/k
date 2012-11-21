@@ -1,7 +1,6 @@
 "use strict";
 
-var assert = require('assert'),
-    _ = require('underscore'),
+var _ = require('underscore'),
     k = _(process.argv).indexOf('html-cov') >= 0 ? require('../lib-cov/k') : require('../lib/k'),
     __should = require('should'),
     glob = require('glob-whatev');

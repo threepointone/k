@@ -1,5 +1,4 @@
-var assert = require('assert'),
-    _ = require('underscore'),
+var _ = require('underscore'),
     k = _(process.argv).indexOf('html-cov') >= 0 ? require('../lib-cov/k') : require('../lib/k'),
     __should = require('should'),
     glob = require('glob-whatev');
@@ -15,11 +14,13 @@ describe('tasks', function() {
             });
         });
     });
+
     describe('filter', function() {
         it('should accept a filter function argument', function() {
 
         });
     });
+
     describe('compress', function() {
         it("should be able to minify css and js files", function() {
 
@@ -30,11 +31,13 @@ describe('tasks', function() {
         });
 
     });
+
     describe('write', function() {
         it("should do a dance, I say.", function() {
 
         });
     });
+
     describe('hashify', function() {
         it("generate a hashified file name and dest", function() {
 
@@ -46,22 +49,17 @@ describe('tasks', function() {
             
         });        
     });
+
     describe('templates', function() {
         it("generate js-ified template set", function() {
             
         });
     });
+
     describe('cdnify', function() {
         it("should replace relative urls in css with cdned versions", function() {
-            
+
         });
-    });
-    describe('cdnify', function(){
-
-    });
-
-    describe('watch', function(){
-
     });
 
 
