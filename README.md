@@ -18,6 +18,8 @@ o.task(name, fn)	// define a new task. the task will be available on o.
 ```
 see tasks.js for available tasks.
 
+run tests with `mocha`
+
 coming up
 ---------
 - an api based on deferreds
