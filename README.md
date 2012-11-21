@@ -52,6 +52,7 @@ o.task(name, fn)	// define a new task. the task will be available on o.
 
 coming up
 ---------
+- set, get environment variables
 - an api based on deferreds
 - analysis tasks
 - full fledged examples
