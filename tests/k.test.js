@@ -78,7 +78,6 @@ describe('k', function() {
 
         });
 
-
         it('should accept a key value hash', function(done) {
             var x = k();
             x.task({
@@ -93,7 +92,6 @@ describe('k', function() {
             });
             x.a();
         });
-
 
     });
 
@@ -113,5 +111,4 @@ describe('k', function() {
 
         });
     });
-
 });

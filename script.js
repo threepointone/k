@@ -1,7 +1,6 @@
 "use strict";
 
 var k = require('./index'),
-
     async = require('async'),
     _ = require('underscore'),
     fs = require('fs');
