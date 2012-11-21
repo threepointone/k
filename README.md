@@ -39,7 +39,7 @@ var o = k({
 ```
 
 ```js
-o.task(name, fn)	// define a new task. the task will be available on o. 
+k.task(name, fn)	// define a new task. the task will be available on all k() instances.
 ```
 
 
