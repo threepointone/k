@@ -12,7 +12,7 @@ var _ = require('underscore'),
 
     function k(config) {
 
-        function init(callback) {
+        function init() {
             var t = this;
             instances.push(t);
             this.config = config = _.extend({}, {
@@ -21,26 +21,13 @@ var _ = require('underscore'),
             }, config || {});
 
             _.each(tasks, function(fn, name) {
-                task.apply(t, [name, fn])
+                task.apply(t, [name, fn]);
             });
 
+            this.files = this.config.files || _.map(glob.glob(path.join(config.base, '**')), function(path){
+                return {src:path};
+            });
 
-
-            var files = this.config.files || [];
-            if(!this.config.files) {
-                glob.glob(path.join(config.base, '**')).forEach(function(path) {
-                    files.push({
-                        src: path
-                    });
-                });
-
-                this.files = files; // todo - are we sure?
-            }
-            else{
-                this.files = this.config.files;
-            }
-
-            // callback && _.bind(callback, this)(null, files);
             return this;
 
         }
@@ -57,11 +44,14 @@ var _ = require('underscore'),
             }
 
             // tasks[name] = fn;
+            if(t[name]) {
+                // clash! throw an error
+                throw new Error('can\'t name the task "' + name + '", sorry.');
+            }
             t[name] = function() {
                 var args = _.toArray(arguments);
                 // todo - now naively making sure the last param passed is a function. 
                 // must rewrite. not sure how. we'll see. bababooey. 
-
                 if(_.isFunction(_.last(args))) {
                     args[args.length - 1] = _.bind(args[args.length - 1], t);
                 } else {
@@ -74,19 +64,18 @@ var _ = require('underscore'),
             return t;
         }
 
-        function clone(){
+        function clone() {
             var conf = _.jsonclone(this.config);
             conf.files = _.jsonclone(this.files);
             return k(conf);
         }
 
         var o = {
-            init: init,
             task: task,
             clone: clone
         };
 
-        o.init.apply(o);
+        init.apply(o);
         return o;
     }
 
