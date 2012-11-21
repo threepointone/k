@@ -10,7 +10,7 @@ describe('k', function() {
 		it('should accept zero arguments', function() {
 			var x = k();
 			x.config.src.should.equal('./');
-			x.config.dest.should.equal('./');
+			x.config.dest.should.equal('./dist');
 		});
 
 		it('should accept a config object', function() {
