@@ -44,12 +44,14 @@ var _ = require('underscore'),
                 return this;
             }
 
-            tasks[name] = t[name] = function() {
+            tasks[name] = fn;
+
+            t[name] = function() {
                 var args = _.toArray(arguments);
                 if(_.isFunction(_.last(args))) {
                     args[args.length - 1] = _.bind(args[args.length - 1], t);
                 } else {
-                    args[args.length] = _.bind(function() {}, t);
+                    args.push(_.identity);
                 }
                 fn.apply(t, args);
                 return t;
@@ -63,6 +65,10 @@ var _ = require('underscore'),
             task: task
         };
     }
+
+    k.task = function(name, fn){
+        tasks [name] = fn;
+    };
 
     if(typeof exports !== 'undefined') {
         if(typeof module !== 'undefined' && module.exports) {

@@ -9,7 +9,7 @@ for now, figuring out a clean task system
 var o = k({
 	base: './',		// base src folder. use .filter() to narrow it down from here
 	dest: 'build'	// base destination folder
-	// send whatever you'd like, they'll be available on this.config
+					// send whatever you'd like, they'll be available on this.config
 });
 
 o.init(cb)			// resolves filenames

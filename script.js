@@ -25,9 +25,4 @@ var x = k({
 });
 
 // then, you can use deferreds and do this - 
-// x().task(tasks).$
-//	.init()
-//	.read()
-//	.filter(/.js/)
-//	.compress({})
-//	.write();
+// x().read().filter(/.js/).compress({}).write();
