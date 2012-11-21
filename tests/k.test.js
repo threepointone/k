@@ -6,7 +6,6 @@ var assert = require('assert'),
     __should = require('should'),
     glob = require('glob-whatev');
 
-
 describe('k', function() {
     describe('initialize', function() {
         it('should accept zero arguments', function() {

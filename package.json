@@ -4,8 +4,8 @@
   "description": "build systems, revisited",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/k.test.js --reporter list",
-    "coverage": "rm -rf lib-cov/ && jscoverage lib lib-cov && mocha tests/k.test.js --reporter html-cov > coverage.html && open coverage.html && rm -rf lib-cov",
+    "test": "mocha tests/*.test.js --reporter list",
+    "coverage": "rm -rf lib-cov/ && jscoverage lib lib-cov && mocha tests/*.test.js --reporter html-cov > coverage.html && open coverage.html && rm -rf lib-cov",
     "docs": "docco lib/*.js"
   },
   "dependencies": {
