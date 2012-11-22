@@ -6,6 +6,12 @@ var _ = require('underscore'),
     glob = require('glob-whatev');
 
 
+describe('D', function(){
+	it('should be able to chain, and execute in order', function(done){
+		var x = k();
+		x.D.wait(200).wait(200).wait(200).then(done);
+	});
+});
 
 // make a new deferred
 // import a method 
