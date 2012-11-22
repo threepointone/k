@@ -4,9 +4,8 @@ var _ = require('underscore'),
 	async = require('async'),
 	__should = require('should');
 
-
-
 describe('D', function() {
+	
 	beforeEach(function() {
 		this.x = {
 			a: function(cb) {
@@ -26,18 +25,14 @@ describe('D', function() {
 			host: this.x
 		});
 	});
+	
 	describe('import', function() {
 		it('should import a method as a deferred version');
+	
 		it('should import a regular method, that can still be chained');
+	
 		it('should be able to chain, and execute in order', function(done) {
 			this.x.D.a().c().then(done);
 		});
 	});
-
-
-
 });
-
-// make a new deferred
-// import a method 
-// import an async method
