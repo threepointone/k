@@ -19,7 +19,7 @@ x.read(function() {
                 this.write(function() {
                     console.log('x', _.pluck(x.files, 'src'));
                     console.log('y', _.pluck(y.files, 'src')); 
-                    console.log(x===y);
+                    console.log(x === y);
                 });
             });
         });
@@ -28,4 +28,4 @@ x.read(function() {
 
 
 // then, you can use deferreds and do this - 
-// x().read().filter(/.js/).compress({}).write();
+// k().read().filter(/.js/).compress({}).write();

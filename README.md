@@ -39,7 +39,7 @@ var o = k({
 ```
 
 ```js
-k.task(name, fn)	// define a new task. the task will be available on all k() instances.
+k.task(name, fn)	// define a new task. the task will be available on all further k() instances.
 ```
 
 **tests**
@@ -51,7 +51,7 @@ k.task(name, fn)	// define a new task. the task will be available on all k() ins
 
 coming up
 ---------
-- set, get environment variables
+- environment variables
 - an api based on deferreds
 - analysis tasks
 - full fledged examples
