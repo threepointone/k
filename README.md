@@ -1,8 +1,15 @@
 k
 -------
-control your build system.
+I wanted to write 'build' files like so - 
+
+```js
+k().filter(/.js$/).compress().hashify().concat().write();
+```
+
+So I'm writing it. It's coming along well. 
 
 **blurb**
+
 Build systems, at its core, are: 
 - simple task systems 
 - most of which deal with files as inputs
