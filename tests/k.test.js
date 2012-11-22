@@ -38,14 +38,14 @@ describe('k', function() {
             _.isFunction(x.xyz).should.be.ok;
         });
 
-        it('should apply to instances created way before', function() {
+        it('should NOT apply to instances created way before', function() {
             var x = k();
 
             k.task({
-                xyz: function() {}
+                abc: function() {}
             });
 
-            _.isFunction(x.xyz).should.be.ok;
+            _.isFunction(x.abc).should.not.be.ok;
         });
     });
 
