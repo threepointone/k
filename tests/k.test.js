@@ -39,7 +39,6 @@ describe('k', function() {
         });
 
         it('should apply to instances created way before', function() {
-
             var x = k();
 
             k.task({
@@ -47,7 +46,6 @@ describe('k', function() {
             });
 
             _.isFunction(x.xyz).should.be.ok;
-
         });
     });
 
@@ -56,7 +54,6 @@ describe('k', function() {
             var x = k();
             x.task('f', _.identity);
             _.isFunction(x.f).should.be.ok;
-
         });
 
         it('should execute the task in its own scope', function(done) {
@@ -73,7 +70,6 @@ describe('k', function() {
             (function() {
                 x.task('f');
             }).should.throwError();
-
         });
 
         it('should accept a key value hash', function(done) {
@@ -90,7 +86,6 @@ describe('k', function() {
             });
             x.a();
         });
-
     });
 
     describe('::clone', function() {
@@ -98,15 +93,12 @@ describe('k', function() {
             var x = k();
             var y = x.clone();
             _.isEqual(x.config, y.config).should.be.ok;
-
-
         });
 
         it('should have equivalent file list', function() {
             var x = k();
             var y = x.clone();
             _.isEqual(x.files, y.files).should.be.ok;
-
         });
     });
 });

@@ -54,45 +54,28 @@ describe('tasks', function() {
     });
 
     describe('compress', function() {
-        it("should be able to minify css and js files", function() {
-
-        });
-
-        it("should generate .min paths", function() {
-
-        });
-
+        it("should be able to minify css and js files");
+        it("should generate .min paths");
     });
 
     describe('write', function() {
-        it("should do a dance, I say.", function() {
-
-        });
+        it("should do a dance, I say.");
     });
 
     describe('hashify', function() {
-        it("generate a hashified file name and dest", function() {
-
-        });
+        it("generate a hashified file name and dest");
     });
 
     describe('concat', function() {
-        it("generate a concatenated file name and dest", function() {
-
-        });
+        it("generate a concatenated file name and dest");
     });
 
     describe('templates', function() {
-        it("generate js-ified template set", function() {
-
-        });
+        it("generate js-ified template set");
     });
 
     describe('cdnify', function() {
-        it("should replace relative urls in css with cdned versions", function() {
-
-        });
+        it("should replace relative urls in css with cdned versions");
     });
-
 
 });
