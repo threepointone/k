@@ -91,7 +91,7 @@ describe('k', function() {
 
     describe('::clone', function() {
         it('should have equivalent config', function() {
-            var x = k();
+            var x = k({falafel:'shawarma'});
             var y = x.clone();
             _.isEqual(x.config, y.config).should.be.ok;
         });
