@@ -2,7 +2,7 @@ k
 -------
 control your build system.
 
-*blurb*
+**blurb**
 Build systems, at its core, are: 
 - simple task systems 
 - most of which deal with files as inputs
@@ -42,11 +42,10 @@ var o = k({
 k.task(name, fn)	// define a new task. the task will be available on all k() instances.
 ```
 
-
-*tests*
+**tests**
 `npm test`
 
-*coverage report*
+**coverage report**
 `npm run-script coverage`
 
 
