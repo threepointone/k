@@ -48,10 +48,11 @@ k.task(name, fn)	// define a new task. the task will be available on all further
 **coverage report**
 `npm run-script coverage`
 
+Thanks to http://yuilibrary.com/gallery/show/deferred for the deferred pattern. 
+
 
 coming up
 ---------
 - environment variables
-- an api based on deferreds
 - analysis tasks
 - full fledged examples
