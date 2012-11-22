@@ -94,10 +94,11 @@ describe('k', function() {
             var x = k({falafel:'shawarma'});
             var y = x.clone();
             _.isEqual(x.config, y.config).should.be.ok;
+            (x===y).should.not.be.ok;
         });
 
         it('should have equivalent file list', function() {
-            var x = k();
+            var x = k({falafel:'shawarma'});
             var y = x.clone();
             _.isEqual(x.files, y.files).should.be.ok;
         });
