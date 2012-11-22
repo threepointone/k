@@ -77,6 +77,7 @@ describe('k', function() {
             x.task({
                 a: function(cb) {
                     x.b(function() {
+                        cb();
                         done();
                     });
                 },
