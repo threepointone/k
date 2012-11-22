@@ -101,6 +101,7 @@ describe('k', function() {
             var x = k({falafel:'shawarma'});
             var y = x.clone();
             _.isEqual(x.files, y.files).should.be.ok;
+            (x===y).should.not.be.ok;
         });
     });
 });
