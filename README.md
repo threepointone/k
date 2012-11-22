@@ -10,17 +10,13 @@ So I'm writing it. It's coming along well.
 
 **blurb**
 
-Build systems, at its core, are: 
+Build systems, at their core, are: 
 - simple task systems 
 - most of which deal with files as inputs
 
 We can take these two ideas and make a simple dsl in javascript using deferreds. With A simplified convention, and a set of basic tasks, we can do common 'build-system'-y stuff double quick!
 
-So there're these objects, right? These objects represent sets of files. 
-
-A set of files. Let that sink in. 
-
-So you can do stuff on these sets. You do this by defining behaviors, or `task`s, with functions that accept callbacks. `k` takes care of the rest, wiring it up to your 'file sets', and executing it in order. You can change the nature of the files by changing the value of `this.files` during your `task`s.
+You do this by defining behaviors, or `task`s, with functions that accept callbacks. `k` takes care of the rest, wiring it up to your 'file sets', and executing it in order. You can change the nature of the files by changing the value of `this.files` during your `task`s.
 
 Btw, a 'file' is a simple hash. Looks sorta like this - 
 ```js
