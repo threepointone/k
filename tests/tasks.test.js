@@ -34,7 +34,7 @@ describe('tasks', function() {
             });
         });
 
-        it('should accept a filter function argument', function() {
+        it('should accept a filter function argument', function(done) {
             var x = k({
                 files: [{
                     src: 'something.js'
