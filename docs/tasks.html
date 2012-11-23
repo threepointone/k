@@ -38,7 +38,13 @@
             <span class="nx">f</span><span class="p">.</span><span class="nx">dest</span> <span class="o">=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">src</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">_</span><span class="p">.</span><span class="nx">hashify</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">content</span><span class="p">);</span> <span class="c1">// todo</span>
         <span class="p">});</span>
         <span class="nx">done</span><span class="p">();</span>
-
+    <span class="p">},</span>
+    <span class="nx">wait</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="nx">done</span><span class="p">){</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">done</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">log</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">done</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nx">done</span><span class="p">();</span>
     <span class="p">},</span>
     <span class="nx">concat</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
 
@@ -57,6 +63,9 @@
     <span class="p">},</span>
     <span class="nx">cmd</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cmd</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;child_process&#39;</span><span class="p">).</span><span class="nx">exec</span><span class="p">(</span><span class="nx">cmd</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">clean</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">){</span>
+
     <span class="p">}</span>
 <span class="p">};</span>
 

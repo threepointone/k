@@ -16,10 +16,15 @@ describe('D', function() {
 			},
 			c: function(cb) {
 				cb();
+			},
+			d: function(){
+
 			}
 		};
 		D.deferMethod('a');
 		D.deferMethod('c');
+
+		D.importMethod('d');
 
 		this.x.D = new D({
 			host: this.x
@@ -27,11 +32,12 @@ describe('D', function() {
 	});
 	
 	describe('import', function() {
-		it('should import a method as a deferred version');
 	
-		it('should import a regular method, that can still be chained');
+		it('should import a regular method, that can still be chained', function(done) {
+			this.x.D.a().d().then(done);
+		});
 	
-		it('should be able to chain, and execute in order', function(done) {
+		it('should be able to import, chain, and execute in order', function(done) {
 			this.x.D.a().c().then(done);
 		});
 	});

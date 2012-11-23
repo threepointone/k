@@ -11,18 +11,17 @@ var x = k({
 });
 var y;
 
-x.read(function(){
+x.read(function() {
     y = x.clone();
-    x.D.filter(/.js$/).compress({}).hashify().write().then(function(){
-                    console.log('x', _.pluck(x.files, 'src'));
-                    console.log('y', _.pluck(y.files, 'src'));
-                    console.log(x === y);        
+    x.D.filter(/.js$/).compress({}).hashify().write().then(function() {
+        console.log('x', _.pluck(x.files, 'src'));
+        console.log('y', _.pluck(y.files, 'src'));
+        console.log(x === y);
     });
 });
 
 // x.read(function() {
 //     var y = this.clone();
-
 //     this.filter(/.js$/, function() {
 //         this.compress({}, function() {
 //             this.hashify(function() {
@@ -36,9 +35,43 @@ x.read(function(){
 //     });
 // });
 
-
-x.D.wait(1500).wait(2000).read().write().then(function(){
+x.D.wait(1500).log('waited').wait(2000).read().write().then(function() {
     console.log('done');
 });
+
+
+//compound tasks
+k.task('a', function(done){ done(); });
+
+k.task('b', function(done){ done(); });
+
+k.task('c', function(done){
+    this.D.a().b().then(done);
+});
+
+k().D.c().then(function(){
+    console.log('done!');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

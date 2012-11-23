@@ -9,9 +9,6 @@
     <span class="nx">hashify</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">).</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;sha1&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">str</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
     <span class="p">},</span>
-    <span class="nx">dest</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">relative</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="p">},</span>
     <span class="nx">compressjs</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">script</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">uglify</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;uglify-js&#39;</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">jsp</span> <span class="o">=</span> <span class="nx">uglify</span><span class="p">.</span><span class="nx">parser</span><span class="p">,</span>
