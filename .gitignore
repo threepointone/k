@@ -18,3 +18,4 @@ xcuserdata
 CVS
 coverage.html
 lib-cov
+node_modules/
