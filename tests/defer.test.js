@@ -5,7 +5,7 @@ var _ = require('underscore'),
 	__should = require('should');
 
 describe('D', function() {
-	
+
 	beforeEach(function() {
 		this.x = {
 			a: function(cb) {
@@ -19,26 +19,25 @@ describe('D', function() {
 			},
 			d: function(){
 
+			},
+			chain: function(){
+				return new D({host:this});
 			}
 		};
 		D.deferMethod('a');
 		D.deferMethod('c');
 
 		D.importMethod('d');
-
-		this.x.D = new D({
-			host: this.x
-		});
 	});
-	
+
 	describe('import', function() {
-	
+
 		it('should import a regular method, that can still be chained', function(done) {
-			this.x.D.a().d().then(done);
+			this.x.chain().a().d().then(done);
 		});
-	
+
 		it('should be able to import, chain, and execute in order', function(done) {
-			this.x.D.a().c().then(done);
+			this.x.chain().a().c().then(done);
 		});
 	});
 });

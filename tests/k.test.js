@@ -104,4 +104,9 @@ describe('k', function() {
             (x===y).should.not.be.ok;
         });
     });
+
+    describe ('::chain', function(){
+        it('should clone self, start a new chain');
+        it('should exec async tasks in order');
+    });
 });
