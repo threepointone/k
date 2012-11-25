@@ -13,7 +13,7 @@ var y;
 
 x.read(function() {
     y = x.clone();
-    x.chain().filter(/.js$/).compress({}).hashify().then(function() {
+    x.chain().filter(/.js$/).compress().hashify().then(function() {
         console.log('x', _.pluck(x.files, 'src'));
         console.log('y', _.pluck(y.files, 'src'));
         console.log(x === y);

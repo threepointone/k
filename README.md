@@ -1,24 +1,24 @@
 k
 -------
-I wanted to write 'build' files like so - 
+I wanted to write 'build' files like so -
 
 ```js
 k().filter(/.js$/).compress().hashify().concat().write();
 ```
 
-So I'm writing it. It's coming along well. 
+So I'm writing it. It's coming along well.
 
 **blurb**
 
-Build systems, at their core, are: 
-- simple task systems 
+Build systems, at their core, are:
+- simple task systems
 - most of which deal with files as inputs
 
 We can take these two ideas and make a simple dsl in javascript using deferreds. With A simplified convention, and a set of basic tasks, we can do common 'build-system'-y stuff double quick!
 
 You do this by defining behaviors, or `task`s, with functions that accept callbacks. `k` takes care of the rest, wiring it up to your 'file sets', and executing it in order. You can change the nature of the files by changing the value of `this.files` during your `task`s.
 
-Btw, a 'file' is a simple hash. Looks sorta like this - 
+Btw, a 'file' is a simple hash. Looks sorta like this -
 ```js
 {
     src: 'lib/jquery.js',
@@ -51,7 +51,7 @@ k.task(name, fn)	// define a new task. the task will be available on all further
 **coverage report**
 `npm run-script coverage`
 
-Thanks to http://yuilibrary.com/gallery/show/deferred for the deferred pattern. 
+Thanks to http://yuilibrary.com/gallery/show/deferred for the deferred pattern.
 
 
 coming up
@@ -59,3 +59,6 @@ coming up
 - environment variables
 - analysis tasks
 - full fledged examples
+- command-line fu
+- terminal dashboardy stuff?
+- filename convertor helpers
