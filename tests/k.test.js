@@ -38,55 +38,19 @@ describe('k', function() {
             _.isFunction(x.xyz).should.be.ok;
         });
 
-        it('should NOT apply to instances created way before', function() {
+        it('should apply to instances created way before', function() {
             var x = k();
 
             k.task({
                 abc: function() {}
             });
-
-            _.isFunction(x.abc).should.not.be.ok;
-        });
-    });
-
-    describe('::task', function() {
-        it('should accept a task and attach itself', function() {
-            var x = k();
-            x.task('f', _.identity);
-            _.isFunction(x.f).should.be.ok;
+            x.abc();
+            _.isFunction(x.abc).should.be.ok;
         });
 
-        it('should execute the task in its own scope', function(done) {
-            var x = k();
-            x.task('f', function(cb) {
-                this.should.equal(x);
-                cb();
-            }).f(done);
-
-        });
-
-        it('should fail on null fn', function() {
-            var x = k();
-            (function() {
-                x.task('f');
-            }).should.throwError();
-        });
-
-        it('should accept a key value hash', function(done) {
-            var x = k();
-            x.task({
-                a: function(cb) {
-                    x.b(function() {
-                        cb();
-                        done();
-                    });
-                },
-                b: function(cb) {
-                    cb();
-                }
-            });
-            x.a();
-        });
+        it('should fail on a null fn');
+        it('should execute a task in its own scope');
+        it('should accept an object hash');
     });
 
     describe('::clone', function() {
