@@ -73,6 +73,12 @@ describe('tasks', function() {
         });
     });
 
+    describe('meta', function(){
+        it('should be able to generate a meta descriptor file from a fileset', function(done){
+            k().meta('test', done);
+        });
+    });
+
     describe('concat', function() {
         it("generate a concatenated file name at given dest");
     });
@@ -83,6 +89,16 @@ describe('tasks', function() {
 
     describe('cdnify', function() {
         it("should replace relative urls in css with cdned versions");
+    });
+    describe('clean', function(done){
+        it('should wipe out the dist dir', function(done){
+            k().clean(done);
+        });
+    });
+    describe('wait', function(){
+        it('should wait, duh', function(done){
+            k().wait(500, done);
+        });
     });
 
 });
