@@ -41,17 +41,3 @@ k().chain().c().then(function(){
 k().chain().cmd('ls -al').then(function(err, list){
     console.log(list);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
