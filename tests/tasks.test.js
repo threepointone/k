@@ -97,7 +97,7 @@ describe('tasks', function() {
     });
     describe('wait', function(){
         it('should wait, duh', function(done){
-            k().wait(500, done);
+            k().wait(100, done);
         });
     });
 

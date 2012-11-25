@@ -94,7 +94,37 @@ describe('k', function() {
     });
 
     describe('::chain', function() {
-        it('should clone self, start a new chain');
-        it('should exec async tasks in order');
+        it('should clone self, start a new chain', function(){
+            var x = k();
+            var y = x.chain();
+            (x===y.host).should.not.be.ok;
+            _.isEqual(x.files, y.host.files).should.be.ok;
+            _.isEqual(x.config, y.host.config).should.be.ok;
+        });
+        it('should exec async tasks in order', function(done){
+            var str = '';
+            k.task('a', function(done){
+                setTimeout(function(){
+                    str+='1';
+                    done();
+                }, 200)
+            });
+            k.task('b', function(done){
+                setTimeout(function(){
+                    str+='2';
+                    done();
+                }, 100)
+            });
+            k.task('c', function(done){
+                setTimeout(function(){
+                    str+='3';
+                    done();
+                }, 300)
+            });
+            k().chain().a().b().c().then(function(){
+                (str==='123').should.be.ok;
+                done();
+            });
+        });
     });
 });
