@@ -64,7 +64,9 @@ describe('tasks', function() {
     });
 
     describe('write', function() {
-        it("should do a dance, I say.");
+        it("should do a dance, I say.", function(done){
+            k().chain().read().write().then(done);
+        });
     });
 
     describe('hashify', function() {
