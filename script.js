@@ -20,21 +20,6 @@ x.read(function() {
     });
 });
 
-// x.read(function() {
-//     var y = this.clone();
-//     this.filter(/.js$/, function() {
-//         this.compress({}, function() {
-//             this.hashify(function() {
-//                 this.write(function() {
-//                     // console.log('x', _.pluck(x.files, 'src'));
-//                     // console.log('y', _.pluck(y.files, 'src')); 
-//                     // console.log(x === y);
-//                 });
-//             });
-//         });
-//     });
-// });
-
 x.D.wait(1500).log('waited').wait(2000).read().write().then(function() {
     console.log('done');
 });
@@ -53,14 +38,9 @@ k().D.c().then(function(){
     console.log('done!');
 });
 
-
-
-
-
-
-
-
-
+k().D.cmd('mkdir x').then(function(err, list){
+    console.log(err, list);
+});
 
 
 
