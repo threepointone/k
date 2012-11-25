@@ -54,8 +54,13 @@ describe('tasks', function() {
     });
 
     describe('compress', function() {
-        it("should be able to minify css and js files");
-        it("should generate .min paths");
+        it("should be able to minify css and js files", function(done){
+            k({src:'./lib'}).chain().read().compress(done);
+        });
+
+        it("should generate .min paths", function(done){
+            k({src:'./lib'}).chain().read().compress(done);
+        });
     });
 
     describe('write', function() {
@@ -63,11 +68,13 @@ describe('tasks', function() {
     });
 
     describe('hashify', function() {
-        it("generate a hashified file name and dest");
+        it("generate a hashified file name and dest", function(done){
+            k({src:'./lib'}).chain().read().hashify(done);
+        });
     });
 
     describe('concat', function() {
-        it("generate a concatenated file name and dest");
+        it("generate a concatenated file name at given dest");
     });
 
     describe('templates', function() {
