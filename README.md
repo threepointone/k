@@ -3,7 +3,13 @@ k
 I wanted to write 'build' files like so -
 
 ```js
-k().filter(/.js$/).compress().hashify().concat().write();
+k().chain()
+.filter(/.js$/)
+.compress()
+.hashify()
+.concat()
+.write()
+.log('done!');
 ```
 
 So I'm writing it. It's coming along well.
