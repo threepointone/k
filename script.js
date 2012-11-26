@@ -1,16 +1,7 @@
-"use strict";
+var k = require('./index');
 
-var k = require('./index'),
-    async = require('async'),
-    _ = require('underscore'),
-    fs = require('fs');
-
-var x = k({
-    src: './lib',
-    dest: 'build'
-}).chain();
-
-x
+k({ src: 'lib', dest: 'build' })
+.chain()
 .clean()
 .filter(/.js$/)
 .read()
