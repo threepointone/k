@@ -5,7 +5,14 @@ k({ src: 'lib', dest: 'build' })
 .clean()
 .filter(/.js$/)
 .read()
-.compress()
-.hashify()
+.compress().write().meta('compressed')
+.hashify().write().meta('hashed')
 .concat('built.js')
 .log('done');
+
+k({src:'examples/yui', dest: 'build'}).chain()
+.clean()
+.filter(/.js$/)
+.read()
+.yuianalyze()
+.log('analyzed');
