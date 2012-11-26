@@ -10,4 +10,4 @@ var x = k({
     dest: 'build'
 }).chain();
 
-x.read().compress().hashify().write().meta('meta/compressed').clean().log('done');
+x.read().compress().hashify().meta('meta/compressed').filter(/.js$/).concat('built.js').log('done');
