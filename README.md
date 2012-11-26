@@ -56,9 +56,8 @@ Thanks to http://yuilibrary.com/gallery/show/deferred for the deferred pattern.
 
 coming up
 ---------
-- environment variables
+- handle failures
 - analysis tasks
 - full fledged examples
 - command-line fu
 - terminal dashboardy stuff?
-- filename convertor helpers
