@@ -15,7 +15,7 @@
     "glob-whatev": "*",
     "watchr": "*",
     "optimist": "*",
-    "uglify-js": "*",
+    "uglify-js": "1.3.4",
     "wrench": "*",
     "request": "*",
     "xml2json": "*",
