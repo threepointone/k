@@ -4,7 +4,7 @@
   "description": "build systems, revisited",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/*.test.js --reporter spec --slow 400 ",
+    "test": "./node_modules/.bin/mocha tests/*.test.js --reporter spec --slow 400",
     "coverage": "rm -rf lib-cov/ && jscoverage lib lib-cov && mocha tests/*.test.js --reporter html-cov > coverage.html && open coverage.html && rm -rf lib-cov",
     "docs": "docco lib/*.js"
   },
