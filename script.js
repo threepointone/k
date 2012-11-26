@@ -10,10 +10,11 @@ var x = k({
     dest: 'build'
 }).chain();
 
-x.read()
-	.compress()
-	.hashify()
-	.write()
-	.meta()
-	.clean()
-	.log('done');
+x
+.read()
+.compress()
+.hashify()
+.write()
+.meta()
+.clean()
+.log('done');
