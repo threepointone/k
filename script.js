@@ -1,6 +1,6 @@
 var k = require('./index');
 
-k({ src: 'lib', dest: 'build' })
+k({ src: 'lib' })
 .chain()
 .clean()
 .filter(/.js$/)
@@ -10,7 +10,8 @@ k({ src: 'lib', dest: 'build' })
 .concat('built.js')
 .log('done');
 
-k({src:'examples/yui', dest: 'build'}).chain()
+
+k({src:'examples/yui', dest: 'examples/dist'}).chain()
 .clean()
 .filter(/.js$/)
 .read()
