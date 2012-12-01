@@ -9,6 +9,7 @@ k({ src: 'lib' })
 .log('somewhere in the middle')
 .hashify().write().meta('hashed')
 .concat('built.js')
+.noop()
 .fn(function(done){
 	console.log('exec arbit code');
 	done();
