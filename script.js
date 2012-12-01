@@ -1,7 +1,6 @@
 var k = require('./index');
 
-k({ src: 'lib' })
-.chain()
+k({ src: 'lib' }).chain()
 .clean()
 .filter(/\.js$/)
 .read()
@@ -17,10 +16,9 @@ k({ src: 'lib' })
 .log('just about finishing...')
 .clean()
 .then(function(){
-	console.log('done')
-}, function(e){
+	console.log('finito')
+}).fail(function(e){
 	console.log('failed', e.stack);
-
 });
 
 
@@ -28,5 +26,11 @@ k({src:'examples/yui', dest: 'examples/dist'}).chain()
 .clean()
 .filter(/\.js$/)
 .read()
+.compress()
+.hashify()
+.write()
 .yuianalyze()
+.concat('yui-example.js')
+.meta('yui-example')
+.clean()
 .log('analyzed');
