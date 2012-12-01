@@ -64,7 +64,6 @@ Thanks to http://yuilibrary.com/gallery/show/deferred for the deferred pattern.
 
 coming up
 ---------
-- handle failures
 - analysis tasks
 - full fledged examples
 - command-line fu

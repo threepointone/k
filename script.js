@@ -8,7 +8,12 @@ k({ src: 'lib' })
 .compress().write().meta('compressed')
 .hashify().write().meta('hashed')
 .concat('built.js')
-.log('done');
+.log('done')
+.then(function(){
+	console.log('done')
+}, function(){
+	console.log('failed');
+});
 
 
 k({src:'examples/yui', dest: 'examples/dist'}).chain()
