@@ -33,4 +33,7 @@ k({src:'examples/yui', dest: 'examples/dist'}).chain()
 .concat('yui-example.js')
 .meta('yui-example')
 .clean()
-.log('analyzed');
+.log('analyzed')
+.fail(function(e){
+	console.error(e.stack);
+});
