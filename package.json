@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "underscore": "*",
+    "underscore.deferred": "*",
     "async": "*",
     "burrito": "*",
     "glob-whatev": "*",

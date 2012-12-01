@@ -52,15 +52,15 @@ describe('k', function() {
             _.isFunction(x.abc).should.be.ok;
         });
 
-        it('should fail on a null fn', function(){
-            (function(){
+        it('should fail on a null fn', function() {
+            (function() {
                 k.task('alpha');
             }).should.throwError();
         });
 
-        it('should execute a task in its own scope', function(done){
+        it('should execute a task in its own scope', function(done) {
             var x = k();
-            k.task('a', function(){
+            k.task('a', function() {
                 (x === this).should.be.ok;
                 done();
             });
@@ -68,7 +68,7 @@ describe('k', function() {
             x.a();
         });
 
-        it('should accept an object hash', function(){
+        it('should accept an object hash', function() {
 
         });
     });
@@ -94,35 +94,35 @@ describe('k', function() {
     });
 
     describe('::chain', function() {
-        it('should clone self, start a new chain', function(){
+        it('should clone self, start a new chain', function() {
             var x = k();
             var y = x.chain();
-            (x===y.host).should.not.be.ok;
+            (x === y.host).should.not.be.ok;
             _.isEqual(x.files, y.host.files).should.be.ok;
             _.isEqual(x.config, y.host.config).should.be.ok;
         });
-        it('should exec async tasks in order', function(done){
+        it('should exec async tasks in order', function(done) {
             var str = '';
-            k.task('a', function(done){
-                setTimeout(function(){
-                    str+='1';
+            k.task('a', function(done) {
+                setTimeout(function() {
+                    str += '1';
                     done();
                 }, 200)
             });
-            k.task('b', function(done){
-                setTimeout(function(){
-                    str+='2';
+            k.task('b', function(done) {
+                setTimeout(function() {
+                    str += '2';
                     done();
                 }, 100)
             });
-            k.task('c', function(done){
-                setTimeout(function(){
-                    str+='3';
+            k.task('c', function(done) {
+                setTimeout(function() {
+                    str += '3';
                     done();
                 }, 300)
             });
-            k().chain().a().b().c().then(function(){
-                (str==='123').should.be.ok;
+            k().chain().a().b().c().then(function() {
+                (str === '123').should.be.ok;
                 done();
             });
         });

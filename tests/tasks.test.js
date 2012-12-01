@@ -44,7 +44,9 @@ describe('tasks', function() {
                     src: 'something.jpg'
                 }]
             });
-            x.filter(function(f){return f.src.indexOf('.js')>=0;}, function() {
+            x.filter(function(f) {
+                return f.src.indexOf('.js') >= 0;
+            }, function() {
                 _.isEqual(this.files[0].src, 'something.js').should.be.ok;
                 _.isEqual(this.files.length, 1).should.be.ok;
                 done();
@@ -54,29 +56,35 @@ describe('tasks', function() {
     });
 
     describe('compress', function() {
-        it("should be able to minify css and js files", function(done){
-            k({src:'./lib'}).chain().read().compress(done);
+        it("should be able to minify css and js files", function(done) {
+            k({
+                src: './lib'
+            }).chain().read().compress(done);
         });
 
-        it("should generate .min paths", function(done){
-            k({src:'./lib'}).chain().read().compress(done);
+        it("should generate .min paths", function(done) {
+            k({
+                src: './lib'
+            }).chain().read().compress(done);
         });
     });
 
     describe('write', function() {
-        it("should do a dance, I say.", function(done){
+        it("should do a dance, I say.", function(done) {
             k().chain().read().write().then(done);
         });
     });
 
     describe('hashify', function() {
-        it("generate a hashified file name and dest", function(done){
-            k({src:'./lib'}).chain().read().hashify(done);
+        it("generate a hashified file name and dest", function(done) {
+            k({
+                src: './lib'
+            }).chain().read().hashify(done);
         });
     });
 
-    describe('meta', function(){
-        it('should be able to generate a meta descriptor file from a fileset', function(done){
+    describe('meta', function() {
+        it('should be able to generate a meta descriptor file from a fileset', function(done) {
             k().meta('test', done);
         });
     });
@@ -92,13 +100,13 @@ describe('tasks', function() {
     describe('cdnify', function() {
         it("should replace relative urls in css with cdned versions");
     });
-    describe('clean', function(done){
-        it('should wipe out the dist dir', function(done){
+    describe('clean', function(done) {
+        it('should wipe out the dist dir', function(done) {
             k().clean(done);
         });
     });
-    describe('wait', function(){
-        it('should wait, duh', function(done){
+    describe('wait', function() {
+        it('should wait, duh', function(done) {
             k().wait(100, done);
         });
     });
