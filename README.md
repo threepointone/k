@@ -5,6 +5,7 @@ I wanted to write 'build' files like so -
 ```js
 k().chain()
 .filter(/.js$/)
+.read()
 .compress()
 .hashify()
 .concat()
