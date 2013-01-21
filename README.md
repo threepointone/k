@@ -53,6 +53,8 @@ k.task(name, fn)	// define a new task. the task will be available on all further
 
 **tests**
 
+[![Build Status](https://travis-ci.org/threepointone/k.png)](https://travis-ci.org/threepointone/k)
+
 `npm test`
 
 **coverage report**
