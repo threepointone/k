@@ -9,24 +9,29 @@
     "docs": "docco lib/*.js"
   },
   "dependencies": {
-    "underscore": "*",
-    "underscore.deferred": "*",
-    "async": "*",
-    "burrito": "*",
-    "glob-whatev": "*",
-    "uglify-js": "1.3.4",
-    "wrench": "*"
-    
+    "underscore": "^1.6.0",
+    "underscore.deferred": "^0.4.0",
+    "async": "^0.6.2",
+    "burrito": "^0.2.12",
+    "glob-whatev": "^0.1.8",
+    "uglify-js": "^1.3.4",
+    "wrench": "^1.5.8",
+    "should": "^3.2.0",
+    "mocha": "^1.18.2"
   },
-  "devDependencies":{
+  "devDependencies": {
     "mocha": "*",
     "should": "*"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/threepointone/k.git"
   },
-  "keywords": ["build", "systems", "deferreds"],
+  "keywords": [
+    "build",
+    "systems",
+    "deferreds"
+  ],
   "author": "Sunil Pai",
   "license": "BSD"
 }
